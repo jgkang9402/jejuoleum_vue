@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-// import DetailView from "../views/DetailView.vue";
+import ListView from "../views/ListView.vue";
+import ListItem from "../views/ListItem.vue";
 
 Vue.use(VueRouter);
 
@@ -17,15 +18,16 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/ListView.vue"),
-    // children: [
-    //   {
-    //     path: "/detail/:id",
-    //     name: "detail",
-    //     component: DetailView,
-    //   },
-    // ],
+    component: ListView,
+    // component: () =>
+    //   import(/* webpackChunkName: "about" */ "../views/ListView.vue"),
+    children: [
+      {
+        path: ":item",
+        name: "listitem",
+        component: ListItem,
+      },
+    ],
   },
   {
     path: "/map",
@@ -54,6 +56,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/DetailView.vue"),
   },
+  // {
+  //   path: "/list/:item",
+  //   name: "list",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/ListItem.vue"),
+  // },
+
 ];
 
 const router = new VueRouter({

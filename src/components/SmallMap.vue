@@ -5,13 +5,13 @@
 </template>
 
 <script>
-const { kakao } = window;
 
 export default {
   props: {
     xy: Array,
   },
   mounted() {
+    const { kakao } = window;
     // console.log("좌표는", this.xy);
     let mapContainer = document.getElementById("map"), // 지도를 표시할 div
       mapOption = {

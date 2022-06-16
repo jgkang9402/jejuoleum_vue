@@ -5,10 +5,10 @@
 </template>
 
 <script>
-const { kakao } = window;
 
 export default {
   mounted() {
+    const { kakao } = window;
     let mapContainer = document.getElementById("map"), // 지도를 표시할 div
       mapOption = {
         center: new kakao.maps.LatLng(33.362, 126.5336), // 지도의 중심좌표

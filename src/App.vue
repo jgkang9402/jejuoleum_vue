@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <PulseLoader v-if="result.length == 0" :size="size" />
+  <div id="app" v-else>
     <NavBarVue />
     <router-view class="page" :result="result" />
   </div>
@@ -18,21 +19,75 @@
   */
 import axios from "axios";
 import NavBarVue from "./components/NavBar.vue";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+undefined;
+
 export default {
   data() {
     return {
       result: [],
+      size: "100px",
     };
   },
   async mounted() {
-    const res = await axios.get("/rest/JejuOleumVRImg/getOleumADetailList");
+    const res = await axios
+      .get("/rest/JejuOleumVRImg/getOleumADetailList")
+      .then((res) => {
+        this.result = res.data.resultSummary;
+        if (res.status) {
+          if (this.result.length != 0) {
+            for (let i = 0; i <= this.result.length; i++) {
+              this.result[i].oleumAltitu = i;
+            }
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(res);
-    if (res.status) {
-      this.result = res.data.resultSummary;
+    let test = this.result;
+    console.log(test);
+    let a = test.slice(0,10)
+    let b = test.slice(10,20)
+    let c = test.slice(20,30)
+    let d = test.slice(30,40)
+    let e = test.slice(40,50)
+    let f = test.slice(50,60)
+    let g = test.slice(60,70)
+    let h = test.slice(70,80)
+    let i = test.slice(80,90)
+
+    let alpha = [a,b,c,d,e,f,g,h,i]
+    // let plus = a.concat(b,c)
+    let plus =[]
+    // plus[0]=a
+    // plus[1]=b
+    // plus[2]=c
+    // console.log(plus);
+    for(let j=0;j<9;j++){
+      plus[j]=alpha[j]
     }
+    console.log(plus);
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    // console.log(d);
+    // let c = test.slice(0,10)
+
+    // this.result = res.data.resultSummary;
+    // if (res.status) {
+    //   if (this.result.length != 0) {
+    //     for (let i = 0; i <= this.result.length; i++) {
+    //       this.result[i].oleumAltitu = i;
+    //     }
+    //   }
+    // }
+    // console.log(this.result);
   },
   components: {
     NavBarVue,
+    PulseLoader,
   },
 };
 </script>
@@ -76,5 +131,10 @@ i {
 }
 
 .page {
+}
+.v-spinner {
+  position: absolute;
+  left: calc(50% - 200px);
+  top: calc(50% - 100px);
 }
 </style>

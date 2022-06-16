@@ -2,9 +2,12 @@
   <div>
     <nav>
       <div class="nav-wrap">
-        <router-link to="/"><h1>5leum</h1></router-link>
+        <router-link to="/"
+          ><h1><span>🐄</span>5leum</h1></router-link
+        >
+        <!-- <router-link @click="$router.push({name:'/'})"><h1><span>🐄</span>5leum</h1></router-link> -->
         <div class="nav">
-          <router-link to="/list"><div class="nav-link">All</div></router-link>
+          <router-link to="/list/0"><div class="nav-link">All</div></router-link>
           <router-link to="/map"><div class="nav-link">Map</div></router-link>
           <router-link to="/like"><div class="nav-link">Like</div></router-link>
         </div>
@@ -27,6 +30,7 @@ nav {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .nav {
   display: flex;

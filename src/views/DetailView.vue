@@ -36,6 +36,7 @@ export default {
   },
   props: {
     result: Array,
+    // pageNum:Number,
   },
   methods: {
     back() {
@@ -43,6 +44,13 @@ export default {
     },
   },
   mounted() {
+    // console.log(this.$store.getters.pageNum)
+    function toTheTop() {
+      window.scrollTo({
+        top: 0,
+      });
+    }
+    toTheTop()
     // console.log(this.xy);
   },
   components: { SmallMapVue },

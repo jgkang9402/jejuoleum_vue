@@ -5,7 +5,6 @@
         <router-link to="/"
           ><h1><span>🗻</span><span class="cow">🐄</span>5leum</h1></router-link
         >
-        <!-- <router-link @click="$router.push({name:'/'})"><h1><span>🐄</span>5leum</h1></router-link> -->
         <div class="nav">
           <router-link to="/list/0"
             ><div class="nav-link">All</div></router-link

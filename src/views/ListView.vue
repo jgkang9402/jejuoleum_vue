@@ -23,7 +23,7 @@
     <!-- </router-view> -->
     <ol>
       <li
-        v-for="(item, idx) in pieces"
+        v-for="(item, idx) in copied.length"
         :key="idx"
         @click="
           () => {
@@ -48,7 +48,6 @@ export default {
     return {
       // copyData: [],
       pageNationList: [],
-      pieces: [1, 2, 3, 4, 5, 6, 7, 8,9],
       pageNum: 0,
     };
   },
@@ -60,7 +59,7 @@ export default {
       pageNation(num) {
           console.log(num);
           if (num == num) {
-            console.log("asdasdasdasdasd", this.pageNum);
+            // console.log("asdasdasdasdasd", this.pageNum);
               this.pageNum = num;
               num = num * 10;
               this.pageNationList = this.result.slice(num, num + 10);

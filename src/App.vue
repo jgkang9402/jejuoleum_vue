@@ -20,7 +20,6 @@
 import axios from "axios";
 import NavBarVue from "./components/NavBar.vue";
 import PulseLoader from "vue-spinner/src/PulseLoader.vue";
-undefined;
 
 export default {
   data() {
@@ -33,9 +32,9 @@ export default {
   async mounted() {
     const res = await axios
       .get("/rest/JejuOleumVRImg/getOleumADetailList")
-      .then((res) => {
-        this.result = res.data.resultSummary;
-        if (res.status) {
+      .then((response) => {
+        this.result = response.data.resultSummary;
+        if (response.status) {
           if (this.result.length != 0) {
             for (let i = 0; i <= this.result.length; i++) {
               this.result[i].oleumAltitu = i;
@@ -46,10 +45,9 @@ export default {
       .catch((err) => {
         console.log(err);
       });
-    console.log(res);
+      console.log(res);
 
     let copyArr = new Object(this.result);
-
     /* 
       90개 데이터받아오고
       한객체에 10개씩 순차적 넣고9개의 객체만든다
@@ -116,7 +114,7 @@ export default {
   components: {
     NavBarVue,
     PulseLoader,
-  },
+},
 };
 </script>
 

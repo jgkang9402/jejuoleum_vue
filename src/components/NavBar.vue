@@ -3,11 +3,13 @@
     <nav>
       <div class="nav-wrap">
         <router-link to="/"
-          ><h1><span>🐄</span>5leum</h1></router-link
+          ><h1><span>🗻</span><span class="cow">🐄</span>5leum</h1></router-link
         >
         <!-- <router-link @click="$router.push({name:'/'})"><h1><span>🐄</span>5leum</h1></router-link> -->
         <div class="nav">
-          <router-link to="/list/0"><div class="nav-link">All</div></router-link>
+          <router-link to="/list/0"
+            ><div class="nav-link">All</div></router-link
+          >
           <router-link to="/map"><div class="nav-link">Map</div></router-link>
           <router-link to="/like"><div class="nav-link">Like</div></router-link>
         </div>
@@ -32,6 +34,15 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+.nav-wrap h1:hover .cow {
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+  transform: rotate(60deg);
+  left: -10%;
+  top: -5px;
+}
+
 .nav {
   display: flex;
   align-items: center;

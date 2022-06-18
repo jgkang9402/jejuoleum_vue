@@ -18,6 +18,7 @@
         :pageNationList="pageNationList"
         :result="result"
         :pageNum="pageNum"
+        :copied="copied"
       />
     <!-- </router-view> -->
     <ol>
@@ -53,6 +54,7 @@ export default {
   },
   props: {
     result: Array,
+    copied: Array,
   },
   methods: {
       pageNation(num) {

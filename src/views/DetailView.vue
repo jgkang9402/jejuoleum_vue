@@ -70,4 +70,8 @@ export default {
   position: fixed;
   left: 5px;
 }
+.detail-parent img{
+  width: 50%;
+  height: 50%;
+}
 </style>

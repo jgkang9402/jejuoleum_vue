@@ -1,8 +1,7 @@
 <template>
   <div>
-    log{{ $route.params.item }}
     <ul>
-      <li v-for="(item, idx) in pageNationList" :key="idx">
+      <li v-for="(item, idx) in copied[$route.params.item]" :key="idx">
         <router-link :to="`/detail/${item.oleumAltitu}`" :pageNum="pageNum">
           <img
             v-if="item.oleumAltitu == 46"
@@ -32,6 +31,7 @@ export default {
   props: {
     // pageNationList: Array,
     result: Array,
+    copied: Array,
     // pageNum: Number,
   },
   methods: {

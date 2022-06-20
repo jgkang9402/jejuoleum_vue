@@ -45,7 +45,10 @@ export default {
       .catch((err) => {
         console.log(err);
       });
-      console.log(res);
+    console.log(res);
+
+    this.result[46].imgPath =
+      "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20141013_91%2Fjlk63_1413199771300aTtgY_JPEG%2F%25C0%25CC%25B4%25DE%25BA%25C01.JPG&type=sc960_832";
 
     let copyArr = new Object(this.result);
     /* 
@@ -114,7 +117,7 @@ export default {
   components: {
     NavBarVue,
     PulseLoader,
-},
+  },
 };
 </script>
 

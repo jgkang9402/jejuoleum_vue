@@ -3,7 +3,7 @@
     <nav>
       <div class="nav-wrap">
         <router-link to="/"
-          ><h1><span>🗻</span><span class="cow">🐄</span>5leum</h1></router-link
+          ><h1><span class="logo">🗻</span><span class="cow">🐄</span>5leum</h1></router-link
         >
         <div class="nav">
           <router-link to="/list/0"
@@ -24,10 +24,11 @@ export default {};
 <style>
 nav {
   border-bottom: 1px solid #000;
+  height: 10vh;
 }
 .nav-wrap {
   width: 90vw;
-  height: 5vh;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

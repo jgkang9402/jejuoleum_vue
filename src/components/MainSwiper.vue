@@ -1,11 +1,49 @@
+<!-- <template>
+  <Swiper
+    :slides-per-view="3"
+    :space-between="50"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  >
+    <SwiperSlide>Slide 1</SwiperSlide>
+    <SwiperSlide>Slide 2</SwiperSlide>
+    <SwiperSlide>Slide 3</SwiperSlide>
+  </Swiper>
+</template>
+<script>
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  import 'swiper/css';
+
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+      return {
+        onSwiper,
+        onSlideChange,
+      };
+    },
+  };
+</script> -->
+
 <template>
   <div class="slide-parent">
     <ul>
       <li v-for="(item, idx) in copyData" :key="idx" ref="list">
-      <img :src="item.imgPath"></li>
+        <img :src="item.imgPath" />
+      </li>
+      <button class="prev" ref="btn">◀</button>
+      <button class="next">▶</button>
     </ul>
-    <button class="prev">◀</button>
-    <button class="next">▶</button>
   </div>
 </template>
 
@@ -21,10 +59,15 @@ export default {
     result: Array,
     copied: Array,
   },
+  methods:{
+    preveOn(){
+
+    }
+  },
   mounted() {
     // console.log(this.result.slice(0, 10));
     this.copyData = this.result.slice(0, 5);
-    // this.$refs.list.classList.add='on'
+    console.log(this.$refs.btn);
   },
 };
 </script>
@@ -41,36 +84,38 @@ ul {
   margin: 0 auto;
   width: 80vw;
   height: 50vh;
-  display: flex;
+  /* display: flex; */
   position: relative;
   /* float: left; */
-  /* overflow: hidden; */
+  overflow: hidden;
+  white-space: nowrap;
 }
 li {
-  /* display: inline-block; */
+  display: inline-block;
   border: 1px solid #000;
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   color: aqua;
-  display: none;
+  /* display: none; */
 }
 li img {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-.prev, .next {
+.prev,
+.next {
   position: absolute;
   top: 50%;
 }
 .prev {
-  left: 15%;
+  left: 10%;
 }
 .next {
-  right: 15%;
+  right: 10%;
 }
-.on{
+.on {
   display: block;
 }
 </style>

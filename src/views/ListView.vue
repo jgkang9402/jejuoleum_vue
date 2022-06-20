@@ -1,37 +1,14 @@
 <template>
   <div>
-    <!-- <ul>
-      <li v-for="(item, idx) in pageNationList" :key="idx">
-        <router-link :to="`/detail/${item.oleumAltitu}`" :pageNum="pageNum">
-          <img
-            v-if="item.oleumAltitu == 46"
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20141013_91%2Fjlk63_1413199771300aTtgY_JPEG%2F%25C0%25CC%25B4%25DE%25BA%25C01.JPG&type=sc960_832"
-          />
-          <img v-else :src="item.imgPath" />
-          <h1>{{ item.oleumKname }}</h1>
-          <p>{{ item.oleumAddr }}</p>
-        </router-link>
-      </li>
-    </ul> -->
-    <!-- <router-view> -->
-      <ListItem
-        :pageNationList="pageNationList"
-        :result="result"
-        :pageNum="pageNum"
-        :copied="copied"
-      />
+    <ListItem
+      :pageNationList="pageNationList"
+      :result="result"
+      :pageNum="pageNum"
+      :copied="copied"
+    />
     <!-- </router-view> -->
     <ol>
-      <li
-        v-for="(item, idx) in copied.length"
-        :key="idx"
-        @click="
-          () => {
-            // $router.push({ page: `/:page` });
-            // pageNation(idx);
-          }
-        "
-      >
+      <li v-for="(item, idx) in copied.length" :key="idx">
         <router-link :to="`/list/${idx}`">
           {{ item }}
         </router-link>
@@ -56,15 +33,15 @@ export default {
     copied: Array,
   },
   methods: {
-      pageNation(num) {
-          console.log(num);
-          if (num == num) {
-            // console.log("asdasdasdasdasd", this.pageNum);
-              this.pageNum = num;
-              num = num * 10;
-              this.pageNationList = this.result.slice(num, num + 10);
-          }
-      },
+    pageNation(num) {
+      console.log(num);
+      if (num == num) {
+        // console.log("asdasdasdasdasd", this.pageNum);
+        this.pageNum = num;
+        num = num * 10;
+        this.pageNationList = this.result.slice(num, num + 10);
+      }
+    },
   },
   // mounted() {
   //   this.copyData = this.result;

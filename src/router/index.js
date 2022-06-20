@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ListView from "../views/ListView.vue";
 import ListItem from "../views/ListItem.vue";
+import VisitWrite from "../views/VisitWrite.vue";
 
 Vue.use(VueRouter);
 
@@ -48,24 +49,26 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/LikeView.vue"),
   },
   {
-    path: "/detail/:id",
+    path: "/detail/:id/",
     name: "detail",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/DetailView.vue"),
+    children: [
+      {
+        path: "write",
+        name: "visitwrite",
+        component: VisitWrite,
+      },
+    ],
   },
   // {
-  //   path: "/list/:item",
-  //   name: "list",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/ListItem.vue"),
+  //   path: "/detail/:id/write",
+  //   name: "visitwrite",
+  //   component: VisitWrite,
   // },
-
 ];
 
 const router = new VueRouter({

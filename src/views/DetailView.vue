@@ -1,11 +1,20 @@
 <template>
   <div class="detail-parent">
+    <!-- <div>{{ $route.params.id }}</div> -->
+    <router-link
+      :to="`/detail/${$route.params.id}/write`"
+    >
+      <router-view :writeData="writeData" />
+      <div class="nav-link">글쓰기</div>
+    </router-link>
     <span class="back-btn" @click="back"> 🔙 </span>
-    <img
+
+    <!-- <img
       v-if="$route.params.id == 46"
       src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20141013_91%2Fjlk63_1413199771300aTtgY_JPEG%2F%25C0%25CC%25B4%25DE%25BA%25C01.JPG&type=sc960_832"
     />
-    <img v-else :src="result[$route.params.id].imgPath" />
+    <img v-else :src="result[$route.params.id].imgPath" /> -->
+    <img :src="result[$route.params.id].imgPath" />
     <h1>{{ result[$route.params.id].oleumKname }}</h1>
     <h4>{{ result[$route.params.id].oleumAddr }}</h4>
     <p>{{ result[$route.params.id].explan }}</p>
@@ -32,6 +41,7 @@ export default {
         this.result[this.$route.params.id].x,
         this.result[this.$route.params.id].y,
       ],
+      writeData: this.result[this.$route.params.id],
     };
   },
   props: {
@@ -50,14 +60,14 @@ export default {
         top: 0,
       });
     }
-    toTheTop()
-    // console.log(this.xy);
+    toTheTop();
+    console.log(this.writeData);
   },
   components: { SmallMapVue },
 };
 </script>
 
-<style>
+<style scoped>
 .detail-parent {
   text-align: center;
 }
@@ -69,9 +79,14 @@ export default {
   font-size: 40px;
   position: fixed;
   left: 5px;
+  z-index: 1;
 }
-.detail-parent img{
+.detail-parent img {
   width: 50%;
   height: 50%;
+}
+.nav-link {
+  position: absolute;
+  right: 10%;
 }
 </style>

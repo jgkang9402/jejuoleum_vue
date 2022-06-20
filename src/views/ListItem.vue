@@ -3,11 +3,7 @@
     <ul>
       <li v-for="(item, idx) in copied[$route.params.item]" :key="idx">
         <router-link :to="`/detail/${item.oleumAltitu}`" :pageNum="pageNum">
-          <img
-            v-if="item.oleumAltitu == 46"
-            src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20141013_91%2Fjlk63_1413199771300aTtgY_JPEG%2F%25C0%25CC%25B4%25DE%25BA%25C01.JPG&type=sc960_832"
-          />
-          <img v-else :src="item.imgPath" />
+          <img :src="item.imgPath" />
           <h1>{{ item.oleumKname }}</h1>
           <p>{{ item.oleumAddr }}</p>
         </router-link>

@@ -2,15 +2,21 @@
   <div>
     <nav>
       <div class="nav-wrap">
-        <router-link to="/"
-          ><h1><span class="logo">🗻</span><span class="cow">🐄</span>5leum</h1></router-link
-        >
+        <router-link to="/">
+          <div id="logo">
+            <!-- <span class="logo">🗻</span> -->
+            <img src="../assets/logo.png" alt="" />
+            <!-- <div class="cow">🐂</div> -->
+            <div class="cow">🐄</div>
+            <h1>5leum</h1>
+          </div>
+        </router-link>
         <div class="nav">
           <router-link to="/list/0"
             ><div class="nav-link">All</div></router-link
           >
           <router-link to="/map"><div class="nav-link">Map</div></router-link>
-          <router-link to="/like"><div class="nav-link">Like</div></router-link>
+          <router-link to="/like"><div class="nav-link">Visit</div></router-link>
         </div>
       </div>
     </nav>
@@ -21,7 +27,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 nav {
   border-bottom: 1px solid #000;
   height: 10vh;
@@ -34,12 +40,29 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
-.nav-wrap h1:hover .cow {
-  display: inline-block;
+.nav-wrap #logo {
+  display: flex;
+  align-items: center;
+}
+.nav-wrap #logo h1 {
   position: relative;
+  left: -7%;
+}
+.nav-wrap #logo img {
+  width: 32px;
+  height: 32px;
+  transform: rotate(180deg);
+}
+.nav-wrap #logo .cow {
+  font-size: 1.5rem;
+  position: relative;
+  left: -5%;
+}
+.nav-wrap #logo:hover .cow {
+  display: inline-block;
   transition: 0.3s;
   transform: rotate(60deg);
-  left: -10%;
+  left: -8%;
   top: -5px;
 }
 

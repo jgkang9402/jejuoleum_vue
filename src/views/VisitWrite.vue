@@ -5,10 +5,6 @@
       <span class="close-btn" @click="back"> ❌ </span>
       <h1>{{ writeData.oleumKname }}</h1>
       <textarea ref="visitText"></textarea>
-      <div class="filebox">
-        <input type="file" />
-      </div>
-
       <div>
         <button @click="addVisitDiary">저장</button>
       </div>
@@ -20,7 +16,7 @@
 export default {
   data() {
     return {
-      visitData: [],
+      visitData: {},
     };
   },
   props: {
@@ -36,15 +32,13 @@ export default {
         this.$refs.visitText.focus();
         return;
       }
-      this.visitData = [
-        ...this.visitData,
-        {
-          ...this.writeData,
-          text: this.$refs.visitText.value,
-        },
-      ];
-      console.log(this.visitData);
+      (this.visitData = {
+        ...this.writeData,
+        text: this.$refs.visitText.value,
+      }),
+        console.log(this.visitData);
       this.back();
+      this.$store.commit("ADD_DIARY", this.visitData);
     },
   },
   mounted() {
@@ -56,7 +50,7 @@ export default {
 <style scoped>
 .write-parent {
   width: 100vw;
-  height: 150%;
+  height: 170vh;
   background-color: rgba(35, 34, 34, 0.4);
   position: absolute;
   top: 0;
@@ -71,8 +65,6 @@ export default {
   top: 10vh;
   background-color: aliceblue;
   cursor: default;
-}
-h1 {
 }
 textarea {
   width: 70%;

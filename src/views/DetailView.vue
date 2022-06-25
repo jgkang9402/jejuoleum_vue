@@ -5,7 +5,7 @@
       :to="`/detail/${$route.params.id}/write`"
     >
       <router-view :writeData="writeData" />
-      <div class="nav-link">글쓰기</div>
+      <button class="add_post">글쓰기</button>
     </router-link>
     <span class="back-btn" @click="back"> 🔙 </span>
 
@@ -85,8 +85,10 @@ export default {
   width: 50%;
   height: 50%;
 }
-.nav-link {
+.add_post {
   position: absolute;
   right: 10%;
+  margin-top: 10px;
+  cursor: pointer;
 }
 </style>

@@ -66,7 +66,7 @@ export default {
   },
   mounted() {
     // console.log(this.result.slice(0, 10));
-    this.copyData = this.result.slice(0, 5);
+    this.copyData = this.result.slice(1, 5);
     console.log(this.$refs.btn);
   },
 };
@@ -75,7 +75,7 @@ export default {
 <style scoped>
 .slide-parent {
   width: 100vw;
-  height: 51vh;
+  height: 81vh;
   /* border: 1px solid blue; */
   position: relative;
 }
@@ -83,7 +83,7 @@ ul {
   border: 1px solid red;
   margin: 0 auto;
   width: 80vw;
-  height: 50vh;
+  height: 80vh;
   /* display: flex; */
   position: relative;
   /* float: left; */

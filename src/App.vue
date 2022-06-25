@@ -142,6 +142,7 @@ p {
 html,
 body {
   overflow-x: hidden;
+  height: 100%;
 }
 
 a {

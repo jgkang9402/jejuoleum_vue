@@ -1,6 +1,5 @@
 <template>
   <div class="detail-parent">
-    <!-- <div>{{ $route.params.id }}</div> -->
     <router-link
       :to="`/detail/${$route.params.id}/write`"
     >

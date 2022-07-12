@@ -5,7 +5,7 @@
       <KakaoNews />
     </div>
     <h1>실시간 #제주오름</h1>
-    <ApiBlog/>
+    <ApiBlog class="blog_slide"/>
   </div>
 </template>
 
@@ -23,9 +23,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .home-parent {
   display: flex;
   /* max-height: 65vh; */
+}
+h1 {
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+  border-top: 1px dotted #000;
+  border-bottom: 1px dotted #000;
+}
+.blog_slide{
+  margin-bottom: 2rem;
 }
 </style>

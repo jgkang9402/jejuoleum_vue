@@ -21,7 +21,7 @@ export default {
 
     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
     let map = new kakao.maps.Map(mapContainer, mapOption);
-    console.log(map);
+    // console.log(map);
 
     let positions = [
       {
@@ -35,7 +35,7 @@ export default {
     //     latlng: new kakao.maps.LatLng(this.result[i].y, this.result[i].x),
     //   };
     // }
-    console.log(positions);
+    // console.log(positions);
 
     // 마커 이미지의 이미지 주소입니다
     let imageSrc =
@@ -55,7 +55,8 @@ export default {
         title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         image: markerImage, // 마커 이미지
       });
-      console.log(marker);
+      marker
+      // console.log(marker);
     }
   },
 };

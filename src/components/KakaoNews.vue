@@ -49,10 +49,12 @@ export default {
 
 <style lang="scss" scoped>
 .news-parent {
-  border: 1px solid greenyellow;
+  /* border: 1px solid greenyellow; */
   width: 40vw;
   overflow: hidden;
-  height: 50vh;
+  min-height: 50vh;
+  max-height: 80vh;
+
   .item {
     width: auto;
     height: 10%;

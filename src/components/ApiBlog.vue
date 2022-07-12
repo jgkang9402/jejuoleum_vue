@@ -85,7 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 .slide-parent {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   overflow: hidden;
   /* width: 60vw; */
   height: auto;

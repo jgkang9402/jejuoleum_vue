@@ -59,14 +59,15 @@ export default {
 
 <style lang="scss" scoped>
 .slide-parent {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   overflow: hidden;
   width: 60vw;
   height: auto;
+  max-height: 80vh;
   /* border: 1px solid blue; */
   position: relative;
   .swiper {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 80%;
     .swiper-inner-box {
       .swiper-img {

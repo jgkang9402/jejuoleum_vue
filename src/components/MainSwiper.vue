@@ -1,121 +1,79 @@
-<!-- <template>
-  <Swiper
-    :slides-per-view="3"
-    :space-between="50"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-  >
-    <SwiperSlide>Slide 1</SwiperSlide>
-    <SwiperSlide>Slide 2</SwiperSlide>
-    <SwiperSlide>Slide 3</SwiperSlide>
-  </Swiper>
-</template>
-<script>
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
-  import 'swiper/css';
-
-  export default {
-    components: {
-      Swiper,
-      SwiperSlide,
-    },
-    setup() {
-      const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-      return {
-        onSwiper,
-        onSlideChange,
-      };
-    },
-  };
-</script> -->
-
 <template>
   <div class="slide-parent">
-    <ul>
-      <li v-for="(item, idx) in copyData" :key="idx" ref="list">
-        <img :src="item.imgPath" />
-      </li>
-      <button class="prev" ref="btn">◀</button>
-      <button class="next">▶</button>
-    </ul>
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide
+        v-for="(item, idx) in copyData"
+        :key="idx"
+        class="swiper-inner-box"
+      >
+        <h3>{{ item.oleumKname }}</h3>
+        <img :src="item.imgPath" class="swiper-img" />
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
+
 export default {
   name: "MainSwiper",
   data() {
     return {
       copyData: [],
+      swiperOption: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
     };
   },
   props: {
     result: Array,
     copied: Array,
   },
-  methods:{
-    preveOn(){
-
-    }
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  methods: {
+    preveOn() {},
   },
   mounted() {
-    // console.log(this.result.slice(0, 10));
-    this.copyData = this.result.slice(1, 5);
-    console.log(this.$refs.btn);
+    this.copyData = this.result.slice(0, 5);
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .slide-parent {
-  width: 100vw;
-  height: 81vh;
+  border: 1px solid red;
+  overflow: hidden;
+  width: 60vw;
+  height: auto;
   /* border: 1px solid blue; */
   position: relative;
-}
-ul {
-  border: 1px solid red;
-  margin: 0 auto;
-  width: 80vw;
-  height: 80vh;
-  /* display: flex; */
-  position: relative;
-  /* float: left; */
-  overflow: hidden;
-  white-space: nowrap;
-}
-li {
-  display: inline-block;
-  border: 1px solid #000;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  color: aqua;
-  /* display: none; */
-}
-li img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-}
-.prev {
-  left: 10%;
-}
-.next {
-  right: 10%;
-}
-.on {
-  display: block;
+  .swiper {
+    border: 1px solid red;
+    width: 80%;
+    .swiper-inner-box {
+      .swiper-img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
 </style>

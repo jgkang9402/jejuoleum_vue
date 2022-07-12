@@ -143,8 +143,8 @@ html,
 body {
   overflow-x: hidden;
   height: 100%;
+  /* background-color: rgba(92, 243, 167, 0.679); */
 }
-
 a {
   color: #000;
   text-decoration: none;
@@ -161,7 +161,15 @@ i {
 }
 
 .page {
+  /* background-image: url('https://www.investkorea.org/images/jj-en/ctn/img_jjlife_ctn0901.jpg'); */
+  /* background-image: url('https://thumbs.dreamstime.com/z/traveling-to-asia-jeju-island-landmark-jeolmul-forest-landscape-park-tall-trees-famous-showplace-green-south-korea-219549453.jpg'); */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Pex9Hw263TpFJ7pjJu9K1_wZ08prdbBg0Q&usqp=CAU'); */
+  
+  /* background-image: url('https://cdn.pixabay.com/photo/2020/01/18/11/27/forest-4775044_1280.jpg'); */
 }
+
 .v-spinner {
   position: absolute;
   left: calc(50% - 200px);

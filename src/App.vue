@@ -7,7 +7,7 @@
 </template>
 
 <script>
-/* 
+/*
   explan: "비고 51m의 원형 화구를 가진 오름이다.  거칠지 않은 산 체와 완만한 탐방로가 있어 여유로운 분위기의 오름이다."
   imgPath: "https://gis.jeju.go.kr/images/oleum/abu.png"
   oleumAddr: "제주시 구좌읍 송당리"
@@ -30,8 +30,10 @@ export default {
     };
   },
   async mounted() {
+    const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
     const res = await axios
-      .get("/rest/JejuOleumVRImg/getOleumADetailList")
+      .get(`${PROXY}/rest/JejuOleumVRImg/getOleumADetailList`)
+      // .get("/rest/JejuOleumVRImg/getOleumADetailList")
       .then((response) => {
         this.result = response.data.resultSummary;
         if (response.status) {
@@ -51,7 +53,7 @@ export default {
       "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20141013_91%2Fjlk63_1413199771300aTtgY_JPEG%2F%25C0%25CC%25B4%25DE%25BA%25C01.JPG&type=sc960_832";
 
     let copyArr = new Object(this.result);
-    /* 
+    /*
       90개 데이터받아오고
       한객체에 10개씩 순차적 넣고9개의 객체만든다
       만들어진 9개의 객체를 한배열에 넣는다
@@ -166,7 +168,7 @@ i {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Pex9Hw263TpFJ7pjJu9K1_wZ08prdbBg0Q&usqp=CAU'); */
-  
+
   /* background-image: url('https://cdn.pixabay.com/photo/2020/01/18/11/27/forest-4775044_1280.jpg'); */
 }
 

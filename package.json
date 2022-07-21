@@ -19,7 +19,6 @@
     "vue-spinner": "^1.0.4",
     "vuex": "^3.6.2"
   },
-  "proxy": "https://subtle-druid-87d9e3.netlify.app",
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
@@ -49,5 +48,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "proxy": "https://gis.jeju.go.kr"
 }
